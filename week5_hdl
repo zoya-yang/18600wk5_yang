@@ -1,0 +1,20 @@
+CHIP A5Q2 <201837629> {
+    IN P, F, C;
+    OUT D;
+
+    PARTS:
+    //NOT Gate 1: ~P
+    Not(in=P, out=notP);
+
+    //NOT Gate 2: ~F
+    Not(in=F, out=notF);
+
+    //AND Gate 1:P AND C
+    And(a=P, b=C, out=andPC);
+
+    //AND Gate 2: ~P AND ~F
+    And(a=notP, b=notF, out=andNotPNotF);
+
+    //OR Gate:(P AND C) OR (~P AND ~F)
+    Or(a=andPC, b=andNotPNotF, out=D);
+}
