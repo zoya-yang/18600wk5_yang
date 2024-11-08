@@ -1,4 +1,4 @@
-CHIP A5Q2201837629{
+CHIP A5Q2201837629 {
     IN P, F, C;
     OUT D;
 
@@ -10,11 +10,12 @@ CHIP A5Q2201837629{
     Not(in=F, out=notF);
 
     //AND Gate 1:P AND C
-    And(a=P, b=C, out=andPC);
+    And(a=P, b=C, out=AndPC);
 
     //AND Gate 2: ~P AND ~F
-    And(a=notP, b=notF, out=andNotPNotF);
+    And(a=notP, b=notF, out=AndNotPNotF);
 
     //OR Gate:(P AND C) OR (~P AND ~F)
-    Or(a=andPC, b=andNotPNotF, out=D);
+    Or(a=andPC, b=AndNotPNotF, out=D);
 }
+
